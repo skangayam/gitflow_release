@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ###############################################################################
-
+set -x
 usage() {
   [ "${1}" ] && echo "error: ${1}"
 
@@ -88,3 +88,5 @@ for command in ${@:$OPTIND}; do
     *) usage "unknown command: ${command}" 1;;
   esac
 done
+
+set +x
