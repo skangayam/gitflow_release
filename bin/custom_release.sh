@@ -15,10 +15,10 @@ else
     sed -i '' "s/${oldVersion}-SNAPSHOT/${newVersion}/g" modules/module_a/pom.xml
     git add .
     git commit -m "updated version to ${newVersion}"
-#    git push -u origin release/${newVersion}
+
 
     git checkout master
-    git merge release/${newVersion} -X theirs
+    git merge release/${newVersion} -X theirs -m "merging release/${newVersion} into master"
     git push -u origin master
 
     git checkout release/${newVersion}
@@ -28,7 +28,7 @@ else
     git commit -m "added -SNAPSHOT to version"
 
     git checkout develop
-    git merge release/${newVersion} -X theirs
+    git merge release/${newVersion} -X theirs -m "merging release/${newVersion} into develop"
     git push -u origin develop
 
     git branch -D release/${newVersion}
