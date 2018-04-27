@@ -62,7 +62,7 @@ git add .
 git commit -m "added -SNAPSHOT version"
 
 git checkout develop
-git merger $releaseBranch -X theirs -m "merging $releaseBranch into develop"
+git merge $releaseBranch -X theirs -m "merging $releaseBranch into develop"
 git push -u origin develop
 
 git branch -D $releaseBranch
