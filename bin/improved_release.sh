@@ -37,7 +37,7 @@ if [ -z "$nextVersion" ]; then
 fi
 
 # setting git flow init with default branch names
-git flow init -d
+git flow init -fd
 
 currentDevelopVersion=$(mvn help:evaluate -Dexpression=project.version | grep -v INFO | grep -v ERROR | grep -v DEBUG)
 versionToBeReleased=$(cut -d'-' -f1 <<<"$currentDevelopVersion")
