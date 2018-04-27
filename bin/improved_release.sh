@@ -39,6 +39,11 @@ fi
 # setting git flow init with default branch names
 git flow init -fd
 
+if [ $? -ne 0 ]; then
+        echo "ERROR with git flow init. Aborting"
+        exit 1
+fi
+
 currentDevelopVersion=$(mvn help:evaluate -Dexpression=project.version | grep -v INFO | grep -v ERROR | grep -v DEBUG)
 versionToBeReleased=$(cut -d'-' -f1 <<<"$currentDevelopVersion")
 releaseBranch="release/${versionToBeReleased}"
