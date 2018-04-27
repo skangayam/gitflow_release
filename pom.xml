@@ -17,4 +17,12 @@
         <application.version>1.0</application.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-help-plugin</artifactId>
+            <version>2.2</version>
+        </dependency>
+    </dependencies>
+
 </project>
