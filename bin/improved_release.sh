@@ -45,10 +45,12 @@ if [ $? -ne 0 ]; then
 fi
 
 currentDevelopVersion=$(mvn help:evaluate -Dexpression=project.version | grep -v INFO | grep -v ERROR | grep -v DEBUG)
+echo "currentDevelopVersion $currentDevelopVersion"
 versionToBeReleased=$(cut -d'-' -f1 <<<"$currentDevelopVersion")
+echo "versionToBeReleased $versionToBeReleased"
 releaseBranch="release/${versionToBeReleased}"
 
-git checkout -b $releaseBranch
+git checkout -b $releaseBranch develop
 
 # updating the pom files removing the -SNAPSHOT
 sed -ri "0,/$currentDevelopVersion/s/$currentDevelopVersion/$versionToBeReleased/" pom.xml
