@@ -7,7 +7,7 @@
     <groupId>com.skangayam</groupId>
     <artifactId>gitflow_release</artifactId>
     <packaging>pom</packaging>
-    <version>1.5.1-SNAPSHOT</version>
+    <version>1.5.1</version>
 
     <modules>
         <module>modules/module_a</module>
